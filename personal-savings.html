@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savings Accounts | ZenitCU</title>
+    <meta
+      name="description"
+      content="ZenitCU savings accounts built for long-term financial goals and better everyday banking."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="personal-checking.css" />
+    <link rel="stylesheet" href="personal-savings.css" />
+  </head>
+  <body class="personal-page savings-page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="BrightBank home">
+          <span class="brand-mark">Z</span>
+          <span>ZenitCU</span>
+        </a>
+
+        <nav class="nav" id="navMenu" aria-label="Main navigation">
+          <div class="nav-item has-menu personal-parent">
+            <button type="button" class="nav-trigger" aria-label="Open personal banking options">Personal</button>
+            <div class="dropdown-menu personal-dropdown" aria-label="Personal submenu">
+              <a href="personal-checking.html">Personal Checking</a>
+              <a href="personal-savings.html">Personal Savings</a>
+            </div>
+          </div>
+
+          <a href="business.html">Business</a>
+
+          <div class="nav-item has-menu">
+            <a href="#accounts">Accounts</a>
+            <div class="dropdown-menu" aria-label="Accounts submenu">
+              <span>Credit Cards</span>
+              <span>Fixed Deposit Account</span>
+              <span>Salary Account</span>
+              <span>Recurring Deposit</span>
+            </div>
+          </div>
+
+          <a href="#insights">Insights</a>
+          <a href="#about">About</a>
+          <div class="nav-actions">
+            <a href="login.html" class="btn btn-light">Log in</a>
+            <a href="signup.html" class="btn btn-primary">Open account</a>
+          </div>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="personal-hero savings-hero">
+        <div class="container personal-hero-grid">
+          <div class="hero-copy">
+            <p class="breadcrumb">Personal » Checking &amp; Savings » Savings Accounts</p>
+            <h1>Savings Accounts</h1>
+            <p class="lead">A better financial future starts here.</p>
+
+            <div class="cta-row">
+              <a href="#openaccount" class="btn btn-primary">Open an Account</a>
+              <a href="#" class="text-link">Not a member yet? Join ZenitCU</a>
+            </div>
+
+            <div class="tab-nav">
+              <a href="#benefits">Benefits</a>
+              <a href="#cds">CDs &amp; Money Market</a>
+              <a href="#rates">Rates</a>
+              <a href="#openaccount">Open Account</a>
+            </div>
+          </div>
+
+          <div class="hero-image-wrap">
+            <img
+              src="img/WhatsApp Image 2026-09-22 at 10.17.54 AM.jpeg"
+              alt="Woman walking with luggage"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="account-section section-wrap" id="benefits">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow center">ZenitCU</p>
+            <h2>Join the Club</h2>
+            <p>We have just the right savings club for the committed saver in you.</p>
+          </div>
+
+          <div class="rate-table-shell club-table-shell">
+            <div class="rate-header-row">
+              <div class="rate-header-cell">BENEFITS</div>
+              <div class="rate-header-cell">RATES</div>
+              <div class="rate-header-cell">OPEN ACCOUNT</div>
+            </div>
+
+            <div class="rate-table-wrap">
+              <div class="rate-grid club-rate-grid">
+                <div class="rate-first-col">
+                  <div class="rate-empty-row"></div>
+                  <div class="rate-label-row">YOUR GOAL</div>
+                  <div class="rate-label-row">MINIMUM BALANCE</div>
+                  <div class="rate-label-row">FEES</div>
+                  <div class="rate-label-row">DEBIT CARD AVAILABLE</div>
+                  <div class="rate-label-row">FREE MONTHLY STATEMENTS</div>
+                </div>
+
+                <div class="rate-column">
+                  <div class="rate-title">Savings Accounts</div>
+                  <div class="rate-value">Establish Membership</div>
+                  <div class="rate-value">$10.00</div>
+                  <div class="rate-value">$0.00</div>
+                  <div class="rate-value check-mark">✓</div>
+                  <div class="rate-value check-mark">✓</div>
+                </div>
+
+                <div class="rate-column">
+                  <div class="rate-title">Seniors Club</div>
+                  <div class="rate-value">Well-Earned Perks</div>
+                  <div class="rate-value">$10.00</div>
+                  <div class="rate-value">$0.00</div>
+                  <div class="rate-value check-mark">✓</div>
+                  <div class="rate-value check-mark">✓</div>
+                </div>
+
+                <div class="rate-column">
+                  <div class="rate-title">Christmas Club</div>
+                  <div class="rate-value">Save for the Holidays</div>
+                  <div class="rate-value">$0.00</div>
+                  <div class="rate-value">$0.00</div>
+                  <div class="rate-value check-mark">✓</div>
+                  <div class="rate-value check-mark">✓</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="open-account-link-wrap">
+            <a href="#" class="btn btn-secondary">Open an account</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Features &amp; Benefits</p>
+            <h2>An entire financial toolbox is at your disposal.</h2>
+          </div>
+
+          <div class="benefit-grid">
+            <div class="benefit-item">
+              <h3>Free Mobile Banking App</h3>
+              <p>Get any and every transaction done while on-the-go with our app that’s equipped with the financial tools you need at any moment.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>No Monthly Maintenance Fees</h3>
+              <p>Keep your money where it belongs — in your account. Enjoy your ZenitCU savings while paying no monthly account fees.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Nationwide ATM Network</h3>
+              <p>Never get stuck without the funds you need. Tap into cash access without extra fees at 30,000+ ATMs throughout the USA.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Shared Branching Network</h3>
+              <p>Experience the power of financial cooperatives with Shared Branching — complete transactions at participating credit unions nationwide.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Robust Member Support</h3>
+              <p>Get personalized assistance whenever you need it from online, phone, or in-person support at our branches.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="money-market section-wrap" id="cds">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Next Level Savings</p>
+            <h2>Certificates of Deposit and Money Market Accounts.</h2>
+          </div>
+
+          <div class="money-grid">
+            <article class="money-card">
+              <img
+                src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"
+                alt="Woman using phone in kitchen"
+              />
+              <div class="money-body">
+                <h3>Certificates of Deposit (CDs)</h3>
+                <p>Earn higher guaranteed returns with fixed interest rates and flexible terms.</p>
+                <a href="#">Contact us to get started</a>
+              </div>
+            </article>
+
+            <article class="money-card">
+              <img
+                src="img/money market.jpeg"
+                alt="Money Chart"
+              />
+              <div class="money-body">
+                <h3>Money Market Accounts</h3>
+                <p>Enjoy higher interest rates while keeping easy access to your savings.</p>
+                <a href="#">Contact us to get started</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq section-wrap">
+        <div class="container faq-box">
+          <div class="section-heading">
+            <p class="eyebrow">FAQs</p>
+            <h2>Everything you need to know.</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>How do I know if I have a savings account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>If you already opened a savings account with ZenitCU, it will appear in your online banking and mobile app. You can also check your account list or recent statements to confirm it is active.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>Can I have multiple savings accounts?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes. You may hold more than one savings account, depending on your goals and the account type you choose. Many members use separate accounts to save for emergencies, travel, or education.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>Do I need to keep money in my savings account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>There is typically a minimum deposit requirement, and keeping a healthy balance helps you avoid fees and maximize your savings growth. The exact requirement depends on the product you choose.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>Am I able to receive a debit card on my Savings Account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes. Some ZenitCU savings products include a debit card option, making it easier to access your money while still keeping your funds in savings.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>Can I have my paycheck direct deposited into my savings account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, direct deposit can usually be set up to a savings account. You can provide your routing number and account number to your employer or payroll provider to begin deposits.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>What is ZenitCU wiring instructions?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Wiring instructions include your bank routing number, account number, and any required reference information for incoming or outgoing transfers. Please contact ZenitCU support to confirm the current instructions for your account.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rates section-wrap" id="rates">
+        <div class="container rate-table-shell">
+          <div class="rate-header-row">
+            <div class="rate-header-cell">BENEFITS</div>
+            <div class="rate-header-cell">RATES</div>
+            <div class="rate-header-cell">OPEN ACCOUNT</div>
+          </div>
+
+          <div class="rate-table-wrap">
+            <div class="rate-grid">
+              <div class="rate-first-col">
+                <div class="rate-empty-row"></div>
+                <div class="rate-label-row">YOUR GOAL</div>
+                <div class="rate-label-row">MINIMUM DEPOSIT</div>
+                <div class="rate-label-row">DEBIT CARD AVAILABLE</div>
+                <div class="rate-label-row">FREE MONTHLY STATEMENTS</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">Savings Accounts</div>
+                <div class="rate-value">Establish Membership</div>
+                <div class="rate-value">$10.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value check-mark">✓</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">Seniors Club</div>
+                <div class="rate-value">Well-Earned Perks</div>
+                <div class="rate-value">$10.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value check-mark">✓</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">Christmas Club</div>
+                <div class="rate-value">Save for the Holidays</div>
+                <div class="rate-value">$0.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value check-mark">✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="related section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">You May Also Be Interested In…</p>
+            <h2>Explore more ZenitCU products.</h2>
+          </div>
+
+          <div class="related-grid">
+            <article class="related-card">
+              <h3>Youth Accounts</h3>
+              <p>Explore exciting options for young people beginning their financial journey.</p>
+              <a href="#">Learn more</a>
+            </article>
+
+            <article class="related-card">
+              <h3>Checking Accounts</h3>
+              <p>ZenitCU believes convenience, security, and perks belong to every member of our credit union.</p>
+              <a href="personal-checking.html">Learn more</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="openaccount" class="apply-box section-wrap">
+        <div class="container apply-inner">
+          <div class="apply-copy">
+            <p class="eyebrow light">Open a Savings Account Today</p>
+            <h2>Establish your membership with ZenitCU by opening a Savings Account.</h2>
+          </div>
+
+          <div class="apply-actions">
+            <a href="#" class="btn btn-primary">Join Us</a>
+            <div class="contact-block">
+              <p>Visit Us</p>
+              <a href="#">Find A Branch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="brand footer-brand">
+            <span class="brand-mark">Z</span>
+            <span>ZenitCU</span>
+          </a>
+          <p>Modern banking for everyday life and long-term goals.</p>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Locations &amp; ATMs</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Routing Number</h4>
+          <p>012188936</p>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© 2026 ZenitCU. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

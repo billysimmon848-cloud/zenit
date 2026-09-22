@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZenitCU | Modern Banking</title>
+    <meta
+      name="description"
+      content="ZenitCU offers secure savings, smart spending, and personal banking solutions designed for everyday financial growth."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand" aria-label="BrightBank home">
+          <span class="brand-mark">Z</span>
+          <span>ZenitCU</span>
+        </a>
+
+        <nav class="nav" id="navMenu" aria-label="Main navigation">
+          <div class="nav-item has-menu personal-parent">
+            <button type="button" class="nav-trigger" aria-label="Open personal banking options">Personal</button>
+            <div class="dropdown-menu personal-dropdown" aria-label="Personal submenu">
+              <a href="personal-checking.html">Personal Checking</a>
+              <a href="personal-savings.html">Personal Savings</a>
+            </div>
+          </div>
+
+          <a href="business.html">Business</a>
+
+          <div class="nav-item has-menu">
+            <a href="#accounts">Accounts</a>
+            <div class="dropdown-menu" aria-label="Accounts submenu">
+              <span>Credit Cards</span>
+              <span>Fixed Deposit Account</span>
+              <span>Salary Account</span>
+              <span>Recurring Deposit</span>
+            </div>
+          </div>
+
+          <a href="#insights">Insights</a>
+          <a href="#about">About</a>
+          <div class="nav-actions">
+            <a href="login.html" class="btn btn-light">Log in</a>
+            <a href="signup.html" class="btn btn-primary">Open account</a>
+          </div>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Banking built for your future</p>
+            <h1>Smarter money moves for every day.</h1>
+            <p class="hero-text">
+              Save more, spend wisely, and grow your wealth with a secure online bank
+              designed around your goals.
+            </p>
+
+            <div class="cta-row">
+              <a href="#accounts" class="btn btn-primary">Open an account</a>
+              <a href="#solutions" class="btn btn-secondary">Explore services</a>
+            </div>
+
+            <ul class="trust-list">
+              <li>4.9/5 trusted by 2M+ customers</li>
+              <li>Secure 24/7 account protection</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Bank account overview">
+            <div class="card statement-card">
+              <div class="card-top">
+                <span class="muted">Total balance</span>
+                <span class="pill positive">+8.2%</span>
+              </div>
+              <h2>$48,760.40</h2>
+              <div class="mini-chart" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="card-row">
+                <span>Checking</span>
+                <strong>$18,245</strong>
+              </div>
+              <div class="card-row">
+                <span>Savings</span>
+                <strong>$30,515</strong>
+              </div>
+            </div>
+
+            <div class="floating-card card-1">
+              <p>Incoming transfer</p>
+              <strong>$3,250</strong>
+            </div>
+
+            <div class="floating-card card-2">
+              <p>Investments</p>
+              <strong>+$1,280</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="container stats-grid">
+          <div class="stat-item">
+            <strong>12.5B+</strong>
+            <span>Transactions processed</span>
+          </div>
+          <div class="stat-item">
+            <strong>98.7%</strong>
+            <span>Customer satisfaction</span>
+          </div>
+          <div class="stat-item">
+            <strong>24/7</strong>
+            <span>Account support</span>
+          </div>
+          <div class="stat-item">
+            <strong>0 fees</strong>
+            <span>On select accounts</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="features section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow center">Banking essentials</p>
+            <h2>Services designed for personal and business growth.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card accordion-card is-open" id="personal">
+              <button class="feature-trigger" type="button" aria-expanded="true">
+                <span class="feature-main">
+                  <span class="icon-box primary">01</span>
+                  <span class="feature-copy">
+                    <span class="feature-title">Personal banking</span>
+                    <span class="feature-description">Manage everyday spending, savings, and life goals with secure tools built for individuals.</span>
+                  </span>
+                </span>
+                <span class="feature-arrow" aria-hidden="true">＋</span>
+              </button>
+
+              <div class="feature-submenu">
+                <a href="personal-checking.html">Checking</a>
+                <a href="personal-savings.html">Savings</a>
+              </div>
+            </article>
+
+            <article class="feature-card" id="business">
+              <a class="feature-link" href="business.html">
+                <span class="icon-box blue">02</span>
+                <h3>Business banking</h3>
+                <p>Support cash flow, payroll, and growth with flexible business accounts and payment solutions.</p>
+              </a>
+            </article>
+
+            <article class="feature-card">
+              <a class="feature-link" href="#insights">
+                <span class="icon-box purple">03</span>
+                <h3>Wealth planning</h3>
+                <p>Build future-ready strategies with investing, budgeting, and financial guidance tailored to you.</p>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="accounts" class="dashboard section-wrap">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Your money at a glance</p>
+              <h2>Flexible accounts built around your goals.</h2>
+            </div>
+            <a href="#" class="text-link">View all products</a>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="account-panel">
+              <div class="account-card main-account">
+                <div class="card-head">
+                  <span>Primary account</span>
+                  <span class="pill neutral">Active</span>
+                </div>
+                <h3>$18,245.72</h3>
+                <div class="account-meta">
+                  <span>•••• 2048</span>
+                  <span>Available</span>
+                </div>
+              </div>
+
+              <div class="account-card small-account">
+                <div class="card-head">
+                  <span>Savings vault</span>
+                  <span class="pill success">+3.4%</span>
+                </div>
+                <h3>$30,515.90</h3>
+              </div>
+            </div>
+
+            <div class="transaction-panel">
+              <div class="panel-header">
+                <h3>Recent activity</h3>
+                <button class="btn btn-inline">Export</button>
+              </div>
+
+              <ul class="transaction-list">
+                <li>
+                  <div class="tx-label">
+                    <span class="dot green"></span>
+                    <div>
+                      <strong>Salary deposit</strong>
+                      <small>Today, 09:42 AM</small>
+                    </div>
+                  </div>
+                  <span class="amount positive">+$3,250.00</span>
+                </li>
+
+                <li>
+                  <div class="tx-label">
+                    <span class="dot blue"></span>
+                    <div>
+                      <strong>Apartment rent</strong>
+                      <small>Yesterday, 04:21 PM</small>
+                    </div>
+                  </div>
+                  <span class="amount negative">-$1,800.00</span>
+                </li>
+
+                <li>
+                  <div class="tx-label">
+                    <span class="dot purple"></span>
+                    <div>
+                      <strong>Investment transfer</strong>
+                      <small>Mon, 11:08 AM</small>
+                    </div>
+                  </div>
+                  <span class="amount positive">+$1,280.00</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="calculator section-wrap" id="insights">
+        <div class="container calc-wrap">
+          <div class="calc-copy">
+            <p class="eyebrow">Plan ahead</p>
+            <h2>Estimate your monthly payment.</h2>
+            <p>
+              Use our quick calculator to understand what your next loan or payment plan might look like.
+            </p>
+          </div>
+
+          <div class="calculator-card">
+            <div class="input-group">
+              <label for="loanAmount">Loan amount</label>
+              <input id="loanAmount" type="number" value="25000" min="1000" step="500" />
+            </div>
+
+            <div class="input-row">
+              <div class="input-group">
+                <label for="interestRate">Interest rate</label>
+                <input id="interestRate" type="number" value="5.5" min="0" step="0.1" />
+              </div>
+
+              <div class="input-group">
+                <label for="loanTerm">Term (months)</label>
+                <input id="loanTerm" type="number" value="36" min="12" step="6" />
+              </div>
+            </div>
+
+            <button id="calculateBtn" class="btn btn-primary full-width">Calculate</button>
+
+            <div class="result-box">
+              <span>Estimated monthly payment</span>
+              <strong id="monthlyPayment">$753.20</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="testimonials section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow center">Customer stories</p>
+            <h2>People trust ZenitCU when it matters most.</h2>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p>
+                “The app is seamless, the savings rate is excellent, and I finally feel confident planning for the future.”
+              </p>
+              <div class="person">
+                <strong>Alicia M.</strong>
+                <span>Freelance designer</span>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <p>
+                ZenitCU helped me streamline my finances and improve my monthly budgeting without the stress.”
+              </p>
+              <div class="person">
+                <strong>Marcus T.</strong>
+                <span>Startup founder</span>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <p>
+                “Fast support, clear insights, and a modern experience that feels personal from day one.”
+              </p>
+              <div class="person">
+                <strong>Priya S.</strong>
+                <span>Marketing lead</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-strip">
+        <div class="container cta-inner">
+          <div>
+            <p class="eyebrow light">Ready to begin?</p>
+            <h2>Start banking with clarity today.</h2>
+          </div>
+          <a href="#top" class="btn btn-primary alt">Get started</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="#top" class="brand footer-brand">
+            <span class="brand-mark">Z</span>
+            <span>ZenitCU</span>
+          </a>
+          <p>Modern banking for everyday life and long-term goals.</p>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#insights">Insights</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Help center</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© <span id="year"></span> ZenitCU. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

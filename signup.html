@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open an Account | ZenitCU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2246d3;
+        --primary-strong: #1837a2;
+        --bg: #f4f7ff;
+        --panel: #ffffff;
+        --panel-alt: #eef4ff;
+        --line: rgba(17, 32, 72, 0.08);
+        --text: #10213f;
+        --muted: #5f6f8e;
+        --success: #1d9d61;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #f6f9ff 0%, #eef3ff 100%);
+        color: var(--text);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .signup-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 18px;
+      }
+
+      .signup-shell {
+        width: min(980px, 100%);
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 30px 70px rgba(17, 32, 72, 0.12);
+        overflow: hidden;
+      }
+
+      .signup-header {
+        padding: 32px 32px 20px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(180deg, #f9fbff 0%, #f4f8ff 100%);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--primary);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .signup-header h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.06em;
+      }
+
+      .signup-body {
+        padding: 32px;
+      }
+
+      .account-type-group {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin: 0 0 28px;
+      }
+
+      .account-option {
+        position: relative;
+      }
+
+      .account-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .account-option label {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 130px;
+        padding: 18px 18px 16px;
+        background: var(--panel-alt);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        color: var(--text);
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
+
+      .account-option input:checked + label {
+        border-color: rgba(34, 70, 211, 0.5);
+        background: #edf3ff;
+        box-shadow: 0 14px 26px rgba(34, 70, 211, 0.08);
+      }
+
+      .option-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+      }
+
+      .option-copy {
+        color: var(--muted);
+        line-height: 1.55;
+        font-size: 0.9rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .field-group {
+        display: grid;
+        gap: 8px;
+      }
+
+      .field-group.full {
+        grid-column: 1 / -1;
+      }
+
+      .field-group label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .field-group input,
+      .field-group select {
+        width: 100%;
+        min-height: 52px;
+        border: 1px solid rgba(17, 32, 72, 0.12);
+        border-radius: 12px;
+        background: #f9fbff;
+        color: var(--text);
+        padding: 0 14px;
+        font: inherit;
+        outline: none;
+      }
+
+      .field-group input:focus,
+      .field-group select:focus {
+        border-color: rgba(34, 70, 211, 0.5);
+        box-shadow: 0 0 0 4px rgba(34, 70, 211, 0.08);
+      }
+
+      .form-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 22px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.96rem;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
+        color: white;
+        box-shadow: 0 16px 30px rgba(34, 70, 211, 0.18);
+      }
+
+      .btn-secondary {
+        background: #edf3ff;
+        color: var(--primary);
+        border-color: rgba(34, 70, 211, 0.16);
+      }
+
+      .muted-link {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      @media (max-width: 760px) {
+        .account-type-group,
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .signup-header,
+        .signup-body {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="signup-page">
+    <div class="signup-shell">
+      <div class="signup-header">
+        <p class="eyebrow">Open an account</p>
+        <h1>Start your ZenitCU journey</h1>
+      </div>
+
+      <div class="signup-body">
+        <form>
+          <div class="account-type-group">
+            <div class="account-option">
+              <input type="radio" id="credit-card" name="account-type" checked />
+              <label for="credit-card">
+                <span class="option-title">Credit Card</span>
+                <span class="option-copy">Flexible spending, rewards, and easy digital account access.</span>
+              </label>
+            </div>
+
+            <div class="account-option">
+              <input type="radio" id="personal-checking" name="account-type" />
+              <label for="personal-checking">
+                <span class="option-title">Personal Checking</span>
+                <span class="option-copy">Everyday banking with secure payments and instant access to your funds.</span>
+              </label>
+            </div>
+
+            <div class="account-option">
+              <input type="radio" id="personal-savings" name="account-type" />
+              <label for="personal-savings">
+                <span class="option-title">Personal Savings</span>
+                <span class="option-copy">Grow your money with smart savings tools and competitive rates.</span>
+              </label>
+            </div>
+
+            <div class="account-option">
+              <input type="radio" id="business-account" name="account-type" />
+              <label for="business-account">
+                <span class="option-title">Business Account</span>
+                <span class="option-copy">Built for cash flow, operations, and business growth.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="full-name">Full name</label>
+              <input id="full-name" type="text" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email address</label>
+              <input id="email" type="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="phone">Phone number</label>
+              <input id="phone" type="tel" placeholder="Enter your phone number" required />
+            </div>
+
+            <div class="field-group">
+              <label for="dob">Date of birth</label>
+              <input id="dob" type="date" required />
+            </div>
+
+            <div class="field-group full">
+              <label for="address">Street address</label>
+              <input id="address" type="text" placeholder="Enter your street address" required />
+            </div>
+
+            <div class="field-group">
+              <label for="city">City</label>
+              <input id="city" type="text" placeholder="City" required />
+            </div>
+
+            <div class="field-group">
+              <label for="state">State</label>
+              <input id="state" type="text" placeholder="State" required />
+            </div>
+
+            <div class="field-group">
+              <label for="zip">ZIP code</label>
+              <input id="zip" type="text" placeholder="ZIP code" required />
+            </div>
+
+            <div class="field-group">
+              <label for="password">Create password</label>
+              <input id="password" type="password" placeholder="Create a secure password" required />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit application</button>
+            <a href="index.html" class="muted-link">Back to home</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

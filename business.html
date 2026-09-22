@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Banking | ZenitCU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="business.css" />
+  </head>
+  <body class="business-page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="BrightBank home">
+          <span class="brand-mark">Z</span>
+          <span>ZenitCU</span>
+        </a>
+
+        <nav class="nav" id="navMenu" aria-label="Main navigation">
+          <div class="nav-item has-menu personal-parent">
+            <button type="button" class="nav-trigger" aria-label="Open personal banking options">Personal</button>
+            <div class="dropdown-menu personal-dropdown" aria-label="Personal submenu">
+              <a href="personal-checking.html">Personal Checking</a>
+              <a href="personal-savings.html">Personal Savings</a>
+            </div>
+          </div>
+
+          <a href="business.html">Business</a>
+
+          <div class="nav-item has-menu">
+            <a href="#accounts">Accounts</a>
+            <div class="dropdown-menu" aria-label="Accounts submenu">
+              <span>Credit Cards</span>
+              <span>Fixed Deposit Account</span>
+              <span>Salary Account</span>
+              <span>Recurring Deposit</span>
+            </div>
+          </div>
+
+          <a href="#insights">Insights</a>
+          <a href="#about">About</a>
+          <div class="nav-actions">
+            <a href="login.html" class="btn btn-light">Log in</a>
+            <a href="signup.html" class="btn btn-primary">Open account</a>
+          </div>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="business-hero-section">
+        <div class="container business-hero-grid">
+          <div class="business-copy">
+            <p class="eyebrow">Business</p>
+            <h1>Banking built for business growth.</h1>
+            <p class="lead">
+              Flexible accounts, smarter cash flow tools, and banking support designed to help your business move faster.
+            </p>
+            <div class="cta-row">
+              <a href="#apply" class="btn btn-primary">Apply now</a>
+              <a href="#services" class="btn btn-secondary">Explore services</a>
+            </div>
+          </div>
+
+          <div class="business-visual">
+            <div class="business-panel">
+              <div class="panel-badge">Business overview</div>
+              <h2>$245,000</h2>
+              <div class="panel-row">
+                <span>Available balance</span>
+                <strong>$86,400</strong>
+              </div>
+              <div class="panel-row">
+                <span>Monthly inflow</span>
+                <strong>$42,800</strong>
+              </div>
+              <div class="mini-bars" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="business-services section-wrap">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow center">Services</p>
+            <h2>Banking products for every business stage.</h2>
+          </div>
+
+          <div class="business-grid">
+            <article class="service-card">
+              <div class="icon-box primary">01</div>
+              <h3>Current Accounts</h3>
+              <p>Reliable everyday banking with quick transfers, smart controls, and real-time account visibility.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon-box blue">02</div>
+              <h3>Business Cards</h3>
+              <p>Issue cards for your team, control spending, and track every transaction with complete clarity.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon-box purple">03</div>
+              <h3>Merchant Services</h3>
+              <p>Accept online and in-person payments with streamlined checkout, reporting, and processing support.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon-box orange">04</div>
+              <h3>Business Loans</h3>
+              <p>Secure flexible financing for growth, operations, equipment purchase, and working capital needs.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solutions" class="business-features section-wrap">
+        <div class="container feature-shell">
+          <div class="feature-copy">
+            <p class="eyebrow">Why choose us</p>
+            <h2>Built for confidence, speed, and scale.</h2>
+            <p>
+              From startup founders to expanding teams, our business banking capabilities are designed to support operational efficiency and smarter financial decisions.
+            </p>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>Earn interest up to 7%</h3>
+              <p>Optimized yields for balances that support your daily business activity.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Free SMS alerts</h3>
+              <p>Stay updated on each payment, transfer, and account movement in real time.</p>
+            </div>
+            <div class="feature-item">
+              <h3>International debit cards</h3>
+              <p>Empower teams with multi-currency options tailored for business travel and payments.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Security-first protection</h3>
+              <p>Advanced monitoring and controls help reduce fraud and improve financial oversight.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="business-offers section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Exciting offers</p>
+            <h2>Exclusive business banking perks.</h2>
+          </div>
+
+          <div class="offer-grid">
+            <article class="offer-item">
+              <div class="offer-tag">Medical</div>
+              <h3>Get 10% cashback on business wellness expenses.</h3>
+              <a href="#">Know More</a>
+            </article>
+
+            <article class="offer-item">
+              <div class="offer-tag alt">Entertainment</div>
+              <h3>Get 20% cashback on digital subscriptions and events.</h3>
+              <a href="#">Know More</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="apply" class="business-apply section-wrap">
+        <div class="container apply-box">
+          <div>
+            <p class="eyebrow">Eligibility</p>
+            <h2>Apply for business banking.</h2>
+          </div>
+          <ul>
+            <li>Minimum age of 18 years required.</li>
+            <li>Business entity or incorporated proof must be valid.</li>
+            <li>Strong financial history helps speed approval.</li>
+            <li>Location and account activity are reviewed during evaluation.</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Open an account</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="brand footer-brand">
+            <span class="brand-mark">Z</span>
+            <span>ZenitCU</span>
+          </a>
+          <p>Modern business banking for growth, security, and smarter operations.</p>
+        </div>
+
+        <div>
+          <h4>Loans</h4>
+          <ul>
+            <li><a href="#">Personal Loan</a></li>
+            <li><a href="#">Education Loan</a></li>
+            <li><a href="#">Gold Loan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Business</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© 2026 ZenitCU. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

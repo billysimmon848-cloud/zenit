@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checking Accounts | ZenitCU</title>
+    <meta
+      name="description"
+      content="ZenitCU checking accounts made for everyday banking, savings, and convenient financial tools."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="personal-checking.css" />
+  </head>
+  <body class="personal-page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="BrightBank home">
+          <span class="brand-mark">Z</span>
+          <span>ZenitCU</span>
+        </a>
+
+        <nav class="nav" id="navMenu" aria-label="Main navigation">
+          <div class="nav-item has-menu personal-parent">
+            <button type="button" class="nav-trigger" aria-label="Open personal banking options">Personal</button>
+            <div class="dropdown-menu personal-dropdown" aria-label="Personal submenu">
+              <a href="personal-checking.html">Personal Checking</a>
+              <a href="personal-savings.html">Personal Savings</a>
+            </div>
+          </div>
+
+          <a href="business.html">Business</a>
+
+          <div class="nav-item has-menu">
+            <a href="#accounts">Accounts</a>
+            <div class="dropdown-menu" aria-label="Accounts submenu">
+              <span>Credit Cards</span>
+              <span>Fixed Deposit Account</span>
+              <span>Salary Account</span>
+              <span>Recurring Deposit</span>
+            </div>
+          </div>
+
+          <a href="#insights">Insights</a>
+          <a href="#about">About</a>
+          <div class="nav-actions">
+            <a href="login.html" class="btn btn-light">Log in</a>
+            <a href="signup.html" class="btn btn-primary">Open account</a>
+          </div>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="personal-hero">
+        <div class="container personal-hero-grid">
+          <div class="hero-copy">
+            <p class="breadcrumb">Personal » Checking &amp; Savings » Checking Accounts</p>
+            <h1>Checking Accounts</h1>
+            <p class="lead">Checking Accounts made for you.</p>
+
+            <div class="cta-row">
+              <a href="#openaccount" class="btn btn-primary">Open an Account</a>
+              <a href="#" class="text-link">Not a member yet? Join ZenitCU</a>
+            </div>
+
+            <div class="tab-nav">
+              <a href="#features">Benefits</a>
+              <a href="#rates">Rates</a>
+              <a href="#openaccount">Open Account</a>
+            </div>
+          </div>
+
+          <div class="hero-image-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"
+              alt="Couple reviewing financial plans"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="account-section section-wrap" id="features">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="eyebrow center">ZenitCU</p>
+            <h2>ZenitCU Checking Accounts</h2>
+            <p>Find the perfect checking account to match your needs.</p>
+          </div>
+
+          <div class="card-grid">
+            <article class="account-card feature-card">
+              <img
+                src="img/DebitCards.jpeg"
+                alt="Debit card rewards"
+              />
+              <div class="card-body">
+                <h3>Debit Cards with Rewards</h3>
+                <p>Rewards with everyday purchases</p>
+                <ul>
+                  <li>0.10% APY*</li>
+                  <li>No Monthly Fees</li>
+                  <li>Instant Issue Debit Card</li>
+                </ul>
+                <a href="#" class="btn btn-secondary">Sign Up for Rewards</a>
+              </div>
+            </article>
+
+            <article class="account-card feature-card">
+              <img
+                src="img/WhatsApp Image 2026-09-22 at 10.17.55 AM.jpeg"
+                alt="High yield checking"
+              />
+              <div class="card-body">
+                <h3>Member Plus High-Yield Checking</h3>
+                <p>6.00% APY*</p>
+                <ul>
+                  <li>No minimum balance</li>
+                  <li>Instant Issue Debit Card</li>
+                  <li>No Monthly Fees</li>
+                </ul>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </article>
+
+            <article class="account-card feature-card">
+              <img
+                src="img/ShakingHands.jpeg"
+                alt="Youth checking account"
+              />
+              <div class="card-body">
+                <h3>nPower Youth Checking</h3>
+                <p>For members 8–17 years old</p>
+                <ul>
+                  <li>10.00% APY* on the first $500</li>
+                  <li>Rewards for everyday purchases</li>
+                  <li>Parental Controls</li>
+                </ul>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-wrap">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Features &amp; Benefits</p>
+            <h2>Stay on top of everyday financial obligations.</h2>
+          </div>
+
+          <div class="benefit-grid">
+            <div class="benefit-item">
+              <h3>Digital Banking With BillPay</h3>
+              <p>Manage bills online with free BillPay and set up one-time or recurring payments.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Free Mobile Banking App</h3>
+              <p>Bank on-the-go with powerful tools in our convenient mobile app.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>No Monthly Maintenance Fees</h3>
+              <p>Enjoy all the benefits of your checking account with zero monthly fees.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Nationwide Access</h3>
+              <p>Access cash at 30,000+ fee-free ATMs and bank at participating Shared Branches nationwide.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Order Checks</h3>
+              <p>Running low on checks? Let’s get you restocked with a convenient reorder.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Contactless Debit Card</h3>
+              <p>Simply hold or tap your card on a contactless reader and process payments quickly.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Get Paid Early</h3>
+              <p>Receive your paycheck up to two days early with Direct Deposit.</p>
+            </div>
+            <div class="benefit-item">
+              <h3>Overdraft Protection</h3>
+              <p>Stay covered and avoid fees with Overdraft Protection for your account.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rates section-wrap" id="rates">
+        <div class="container rate-table-shell">
+          <div class="rate-header-row">
+            <div class="rate-header-cell">BENEFITS</div>
+            <div class="rate-header-cell">RATES</div>
+            <div class="rate-header-cell">OPEN ACCOUNT</div>
+          </div>
+
+          <div class="rate-table-wrap">
+            <div class="rate-grid">
+              <div class="rate-first-col">
+                <div class="rate-empty-row"></div>
+                <div class="rate-label-row">APY*</div>
+                <div class="rate-label-row">MINIMUM BALANCE</div>
+                <div class="rate-label-row">DEBIT CARD AVAILABLE</div>
+                <div class="rate-label-row">REWARDS</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">nPower</div>
+                <div class="rate-value">10.00% on first $500.00</div>
+                <div class="rate-value">$0.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value check-mark">✓</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">Debit Card with Rewards</div>
+                <div class="rate-value">.10%</div>
+                <div class="rate-value">$0.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value check-mark">✓</div>
+              </div>
+
+              <div class="rate-column">
+                <div class="rate-title">Member Plus High-Yield Checking</div>
+                <div class="rate-value">8.00%</div>
+                <div class="rate-value">$0.00</div>
+                <div class="rate-value check-mark">✓</div>
+                <div class="rate-value cross-mark">×</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq section-wrap">
+        <div class="container faq-box">
+          <div class="section-heading">
+            <p class="eyebrow">FAQs</p>
+            <h2>Everything you need to know.</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>How can I open a checking account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>You can open a checking account online by visiting the application page, choosing the account type, and completing the short application with your personal information.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>How do I get my debit card?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Once your account is approved, your debit card is typically issued automatically and sent to your mailing address. You can also request a replacement card through online banking if needed.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>How do I set up direct deposit into my checking account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Provide your employer or payroll provider with your ZenitCU routing number and checking account number. Direct deposit usually begins within one or two pay cycles once your payroll team processes it.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>Can I have more than one checking account?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, you may be able to hold more than one checking account depending on your banking needs and account eligibility. Some members use separate accounts for personal spending, bills, and savings goals.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span>+</span>
+                <span>What is ZenitCU wiring instructions?</span>
+              </button>
+              <div class="faq-answer">
+                <p>Wiring instructions include the routing number, account details, and any transfer reference required for sending or receiving funds. Contact ZenitCU support to confirm the exact information for your account before initiating a wire.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="openaccount" class="apply-box section-wrap">
+        <div class="container apply-inner">
+          <div class="apply-copy">
+            <p class="eyebrow light">Open a Checking Account Today</p>
+            <h2>Adding an account to your ZenitCU membership is easy.</h2>
+          </div>
+
+          <div class="apply-actions">
+            <a href="#" class="btn btn-primary">Open Account</a>
+            <div class="contact-block">
+              <p>Visit Us</p>
+              <a href="#">Find A Branch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="brand footer-brand">
+            <span class="brand-mark">Z</span>
+            <span>ZenitCU</span>
+          </a>
+          <p>Modern banking for everyday life and long-term goals.</p>
+        </div>
+
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Locations &amp; ATMs</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Routing Number</h4>
+          <p>313187636</p>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© 2026 ZenitCU. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>
