@@ -94,12 +94,6 @@ if (loginForm) {
           await response.json();
 
 
-        console.log(
-          "Bank login response:",
-          data
-        );
-
-
         // ============================================
         // LOGIN ERROR
         // ============================================

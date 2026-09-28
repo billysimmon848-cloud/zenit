@@ -1791,11 +1791,6 @@ function showWithdrawSection(event) {
   }
 
 
-  console.log(
-    "Withdraw button clicked."
-  );
-
-
   if (!withdrawSection) {
 
     console.error(
@@ -1853,12 +1848,6 @@ async function processWithdrawal(event) {
   event.preventDefault();
 
   event.stopPropagation();
-
-
-  console.log(
-    "CONFIRM WITHDRAWAL button pressed."
-  );
-
 
   const accountNo =
     getAccountNumber();
