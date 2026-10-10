@@ -518,7 +518,7 @@ function displayAccount(account) {
       "----------";
   }
 
-  
+
   // ====================================================
   // PROFILE PERSONAL INFORMATION
   // ====================================================
@@ -650,16 +650,16 @@ function getBankingPopupType(account) {
     String(
       account.plan || ""
     )
-    .trim()
-    .toLowerCase();
+      .trim()
+      .toLowerCase();
 
 
   const planStatus =
     String(
       account.planStatus || ""
     )
-    .trim()
-    .toLowerCase();
+      .trim()
+      .toLowerCase();
 
 
   // ----------------------------------------------------
@@ -1662,10 +1662,9 @@ function renderTransactions(
   if (transactionCount) {
 
     transactionCount.textContent =
-      `${transactions.length} ${
-        transactions.length === 1
-          ? "transaction"
-          : "transactions"
+      `${transactions.length} ${transactions.length === 1
+        ? "transaction"
+        : "transactions"
       }`;
   }
 
@@ -2376,3 +2375,661 @@ if (logoutActionBtn) {
 // ======================================================
 
 loadAccount();
+
+
+/* =========================================================
+   ZENITCU CUSTOMER SUPPORT CHAT
+   Added separately to protect existing dashboard functions
+========================================================= */
+
+(function () {
+  const zenitChatStyles = document.createElement("style");
+
+  zenitChatStyles.textContent = `
+    #zenitSupportButton {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9990;
+      border: none;
+      border-radius: 28px;
+      padding: 13px 20px;
+      background: #176b50;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.18);
+    }
+
+    #zenitSupportPanel {
+      position: fixed;
+      right: 22px;
+      bottom: 82px;
+      z-index: 9990;
+      width: 350px;
+      max-width: calc(100vw - 28px);
+      height: 450px;
+      max-height: calc(100vh - 120px);
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.18);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #zenitSupportHeader {
+      background: #176b50;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #zenitSupportHeader strong {
+      font-size: 15px;
+    }
+
+    #zenitSupportClose {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 23px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    #zenitSupportMessages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .zenit-chat-message {
+      max-width: 85%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .zenit-chat-customer {
+      align-self: flex-end;
+      background: #176b50;
+      color: white;
+      border-bottom-right-radius: 3px;
+    }
+
+    .zenit-chat-support {
+      align-self: flex-start;
+      background: white;
+      color: #222;
+      border: 1px solid #e5e7eb;
+      border-bottom-left-radius: 3px;
+    }
+
+    .zenit-chat-time {
+      display: block;
+      font-size: 10px;
+      margin-top: 5px;
+      opacity: .75;
+    }
+
+    #zenitSupportStatus {
+      padding: 7px 12px;
+      font-size: 11px;
+      color: #64748b;
+      background: white;
+      border-top: 1px solid #eee;
+    }
+
+    #zenitSupportForm {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      background: white;
+      border-top: 1px solid #eee;
+    }
+
+    #zenitSupportInput {
+      flex: 1;
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    #zenitSupportInput:focus {
+      border-color: #176b50;
+    }
+
+    #zenitSupportSend {
+      padding: 10px 13px;
+      background: #176b50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #zenitSupportSend:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 480px) {
+      #zenitSupportButton {
+        right: 14px;
+        bottom: 14px;
+      }
+
+      #zenitSupportPanel {
+        right: 14px;
+        bottom: 72px;
+        width: calc(100vw - 28px);
+        height: min(450px, calc(100vh - 100px));
+      }
+    }
+  `;
+
+  document.head.appendChild(zenitChatStyles);
+
+  // CREATE THE CHAT BUTTON
+  const zenitChatButton = document.createElement("button");
+  zenitChatButton.id = "zenitSupportButton";
+  zenitChatButton.type = "button";
+  zenitChatButton.textContent = "Chat with Support";
+
+  // CREATE THE CHAT PANEL
+  const zenitChatPanel = document.createElement("section");
+  zenitChatPanel.id = "zenitSupportPanel";
+
+  zenitChatPanel.innerHTML = `
+    <div id="zenitSupportHeader">
+      <strong>ZenitCU Support</strong>
+      <button id="zenitSupportClose" type="button"
+        aria-label="Close support chat">&times;</button>
+    </div>
+
+    <div id="zenitSupportMessages" aria-live="polite">
+      <div style="color:#64748b;font-size:13px;">
+        Send us a message and our support team will respond here.
+      </div>
+    </div>
+
+    <div id="zenitSupportStatus">
+      Messages are saved to your support conversation.
+    </div>
+
+    <form id="zenitSupportForm">
+      <input
+        id="zenitSupportInput"
+        type="text"
+        maxlength="5000"
+        placeholder="Type your message..."
+        autocomplete="off"
+        required
+      />
+      <button id="zenitSupportSend" type="submit">Send</button>
+    </form>
+  `;
+
+  document.body.appendChild(zenitChatButton);
+  document.body.appendChild(zenitChatPanel);
+
+  // CHAT ELEMENTS
+  const zenitChatClose = document.getElementById("zenitSupportClose");
+  const zenitChatMessages = document.getElementById("zenitSupportMessages");
+  const zenitChatStatus = document.getElementById("zenitSupportStatus");
+  const zenitChatForm = document.getElementById("zenitSupportForm");
+  const zenitChatInput = document.getElementById("zenitSupportInput");
+  const zenitChatSend = document.getElementById("zenitSupportSend");
+
+  // CHAT STATE
+  let zenitChatOpen = false;
+  let zenitChatPolling = null;
+  let zenitChatBusy = false;
+  let zenitChatLoadingMessages = false;
+  let zenitChatLastMessageKey = "";
+
+  // SESSION STORAGE KEYS ARE SEPARATE FOR EACH ACCOUNT
+  function zenitChatStorageKey(type) {
+    const accountNumber = getAccountNumber();
+
+    if (!accountNumber) {
+      return null;
+    }
+
+    return "zenitcuSupport_" + type + "_" + accountNumber;
+  }
+
+  function zenitChatGetSaved(type) {
+    const key = zenitChatStorageKey(type);
+    return key ? sessionStorage.getItem(key) : null;
+  }
+
+  function zenitChatSave(type, value) {
+    const key = zenitChatStorageKey(type);
+
+    if (key) {
+      sessionStorage.setItem(key, value);
+    }
+  }
+
+  function zenitChatClearSaved() {
+    const conversationKey = zenitChatStorageKey("conversationId");
+    const tokenKey = zenitChatStorageKey("publicToken");
+
+    if (conversationKey) {
+      sessionStorage.removeItem(conversationKey);
+    }
+
+    if (tokenKey) {
+      sessionStorage.removeItem(tokenKey);
+    }
+
+    zenitChatLastMessageKey = "";
+  }
+
+  function zenitChatSetStatus(message) {
+    zenitChatStatus.textContent = message;
+  }
+
+  function zenitChatAddMessage(message) {
+    const bubble = document.createElement("div");
+
+    bubble.className =
+      "zenit-chat-message " +
+      (message.senderType === "customer"
+        ? "zenit-chat-customer"
+        : "zenit-chat-support");
+
+    // Use textContent so message text cannot inject HTML.
+    const text = document.createElement("div");
+    text.textContent = message.text || "";
+    bubble.appendChild(text);
+
+    if (message.createdAt) {
+      const time = document.createElement("span");
+      time.className = "zenit-chat-time";
+
+      const date = new Date(message.createdAt);
+
+      time.textContent = Number.isNaN(date.getTime())
+        ? ""
+        : date.toLocaleString();
+
+      bubble.appendChild(time);
+    }
+
+    zenitChatMessages.appendChild(bubble);
+  }
+
+  function zenitChatShowMessages(messages) {
+    if (!Array.isArray(messages)) {
+      return;
+    }
+
+    const messageKey = JSON.stringify(
+      messages.map(function (message) {
+        return {
+          id: message._id || "",
+          senderType: message.senderType || "",
+          text: message.text || "",
+          createdAt: message.createdAt || ""
+        };
+      })
+    );
+
+    if (messageKey === zenitChatLastMessageKey) {
+      return;
+    }
+
+    zenitChatLastMessageKey = messageKey;
+    zenitChatMessages.replaceChildren();
+
+    if (messages.length === 0) {
+      const emptyMessage = document.createElement("div");
+      emptyMessage.style.color = "#64748b";
+      emptyMessage.style.fontSize = "13px";
+      emptyMessage.textContent =
+        "Send a message to start your support conversation.";
+
+      zenitChatMessages.appendChild(emptyMessage);
+      return;
+    }
+
+    messages.forEach(zenitChatAddMessage);
+
+    zenitChatMessages.scrollTop = zenitChatMessages.scrollHeight;
+  }
+
+  function zenitChatGetMessagesUrl() {
+    const conversationId = zenitChatGetSaved("conversationId");
+
+    if (!conversationId) {
+      return null;
+    }
+
+    return (
+      BANKING_API_URL +
+      "/chat/public/conversations/" +
+      encodeURIComponent(conversationId) +
+      "/messages"
+    );
+  }
+
+  async function zenitChatRequestMessages() {
+    if (zenitChatLoadingMessages) {
+      return;
+    }
+
+    const token = zenitChatGetSaved("publicToken");
+    const url = zenitChatGetMessagesUrl();
+
+    if (!token || !url) {
+      return;
+    }
+
+    zenitChatLoadingMessages = true;
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "x-chat-token": token
+        }
+      });
+
+      const data = await response.json().catch(function () {
+        return {};
+      });
+
+      if (
+        response.status === 401 ||
+        response.status === 403 ||
+        response.status === 404
+      ) {
+        zenitChatClearSaved();
+
+        zenitChatMessages.replaceChildren();
+
+        const emptyMessage = document.createElement("div");
+
+        emptyMessage.style.color = "#64748b";
+        emptyMessage.style.fontSize = "13px";
+
+        emptyMessage.textContent =
+          "Send a message to start your support conversation.";
+
+        zenitChatMessages.appendChild(emptyMessage);
+
+        zenitChatSetStatus(
+          "Your previous chat is no longer available. Send a message to start a new conversation."
+        );
+
+        return;
+      }
+
+
+      if (!response.ok) {
+        throw new Error(data.message || "Could not load support messages.");
+      }
+
+      const messages =
+        data.messages ||
+        (data.conversation && data.conversation.messages);
+
+      if (Array.isArray(messages)) {
+        zenitChatShowMessages(messages);
+      }
+
+      zenitChatSetStatus("Connected to ZenitCU Support.");
+    } catch (error) {
+      zenitChatSetStatus(
+        "Unable to load messages. Please check your connection."
+      );
+    } finally {
+      zenitChatLoadingMessages = false;
+    }
+  }
+
+  async function zenitChatSendMessage(messageText) {
+    if (zenitChatBusy) {
+      return;
+    }
+
+    const accountNumber = getAccountNumber();
+
+    if (!accountNumber) {
+      zenitChatSetStatus(
+        "Your account is still loading. Please try again shortly."
+      );
+      return;
+    }
+
+    zenitChatBusy = true;
+    zenitChatSend.disabled = true;
+
+    try {
+      let conversationId = zenitChatGetSaved("conversationId");
+      let publicToken = zenitChatGetSaved("publicToken");
+
+      // START A NEW CONVERSATION
+      if (!conversationId || !publicToken) {
+        const response = await fetch(
+          BANKING_API_URL + "/chat/public/conversations",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              accountNumber: accountNumber,
+              message: messageText
+            })
+          }
+        );
+
+        const data = await response.json().catch(function () {
+          return {};
+        });
+
+        if (!response.ok) {
+          throw new Error(data.message || "Could not start support chat.");
+        }
+
+        if (!data.conversationId || !data.publicToken) {
+          throw new Error("The server did not return the chat session.");
+        }
+
+        zenitChatSave("conversationId", data.conversationId);
+        zenitChatSave("publicToken", data.publicToken);
+
+        zenitChatLastMessageKey = "";
+
+        const initialMessages =
+          data.messages ||
+          (data.conversation && data.conversation.messages);
+
+        if (Array.isArray(initialMessages)) {
+          zenitChatShowMessages(initialMessages);
+        } else {
+          await zenitChatRequestMessages();
+        }
+
+        zenitChatSetStatus("Connected to ZenitCU Support.");
+        return;
+      }
+
+      // SEND A MESSAGE TO AN EXISTING CONVERSATION
+      const response = await fetch(
+        BANKING_API_URL +
+        "/chat/public/conversations/" +
+        encodeURIComponent(conversationId) +
+        "/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-chat-token": publicToken
+          },
+          body: JSON.stringify({
+            text: messageText
+          })
+        }
+      );
+
+      const data = await response.json().catch(function () {
+        return {};
+      });
+
+      if (
+        response.status === 401 ||
+        response.status === 403 ||
+        response.status === 404
+      ) {
+        zenitChatClearSaved();
+
+        // Automatically start a fresh conversation
+        // using the message the customer just typed.
+        const newResponse = await fetch(
+          BANKING_API_URL + "/chat/public/conversations",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              accountNumber: accountNumber,
+              message: messageText
+            })
+          }
+        );
+
+        const newData = await newResponse.json().catch(function () {
+          return {};
+        });
+
+        if (!newResponse.ok) {
+          throw new Error(
+            newData.message || "Could not start a new support conversation."
+          );
+        }
+
+        if (!newData.conversationId || !newData.publicToken) {
+          throw new Error("The server did not return the new chat session.");
+        }
+
+        zenitChatSave("conversationId", newData.conversationId);
+        zenitChatSave("publicToken", newData.publicToken);
+
+        zenitChatLastMessageKey = "";
+
+        const newMessages =
+          newData.messages ||
+          (newData.conversation && newData.conversation.messages);
+
+        if (Array.isArray(newMessages)) {
+          zenitChatShowMessages(newMessages);
+        } else {
+          await zenitChatRequestMessages();
+        }
+
+        zenitChatSetStatus("Connected to ZenitCU Support.");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error(data.message || "Could not send your message.");
+      }
+
+      const returnedMessages =
+        data.messages ||
+        (data.conversation && data.conversation.messages);
+
+      if (Array.isArray(returnedMessages)) {
+        zenitChatShowMessages(returnedMessages);
+      } else {
+        await zenitChatRequestMessages();
+      }
+
+      zenitChatSetStatus("Message sent.");
+    } catch (error) {
+      zenitChatSetStatus(error.message || "Unable to send your message.");
+    } finally {
+      zenitChatBusy = false;
+      zenitChatSend.disabled = false;
+      zenitChatInput.focus();
+    }
+  }
+
+  function zenitChatStartPolling() {
+    if (zenitChatPolling) {
+      clearInterval(zenitChatPolling);
+    }
+
+    zenitChatRequestMessages();
+
+    zenitChatPolling = setInterval(function () {
+      if (zenitChatOpen) {
+        zenitChatRequestMessages();
+      }
+    }, 5000);
+  }
+
+  function zenitChatStopPolling() {
+    if (zenitChatPolling) {
+      clearInterval(zenitChatPolling);
+      zenitChatPolling = null;
+    }
+  }
+
+  // OPEN AND CLOSE THE WIDGET
+  zenitChatButton.addEventListener("click", function () {
+    zenitChatOpen = true;
+    zenitChatPanel.style.display = "flex";
+    zenitChatButton.style.display = "none";
+
+    if (!getAccountNumber()) {
+      zenitChatSetStatus("Loading your account...");
+    } else {
+      zenitChatStartPolling();
+      zenitChatInput.focus();
+    }
+  });
+
+  zenitChatClose.addEventListener("click", function () {
+    zenitChatOpen = false;
+    zenitChatPanel.style.display = "none";
+    zenitChatButton.style.display = "block";
+    zenitChatStopPolling();
+  });
+
+  // SEND FORM
+  zenitChatForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const messageText = zenitChatInput.value.trim();
+
+    if (!messageText) {
+      return;
+    }
+
+    zenitChatInput.value = "";
+    zenitChatSendMessage(messageText);
+  });
+})();
