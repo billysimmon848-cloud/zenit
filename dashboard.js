@@ -2501,15 +2501,19 @@ loadAccount();
       border-top: 1px solid #eee;
     }
 
-    #zenitSupportInput {
-      flex: 1;
-      min-width: 0;
-      padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 13px;
-      outline: none;
-    }
+    
+#zenitSupportInput {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
 
     #zenitSupportInput:focus {
       border-color: #176b50;
@@ -2530,19 +2534,49 @@ loadAccount();
       cursor: not-allowed;
     }
 
-    @media (max-width: 480px) {
-      #zenitSupportButton {
-        right: 14px;
-        bottom: 14px;
-      }
+    
+/* MOBILE SUPPORT CHAT */
+#zenitSupportPanel,
+#zenitSupportPanel * {
+  box-sizing: border-box;
+}
 
-      #zenitSupportPanel {
-        right: 14px;
-        bottom: 72px;
-        width: calc(100vw - 28px);
-        height: min(450px, calc(100vh - 100px));
-      }
-    }
+@media (max-width: 480px) {
+  #zenitSupportButton {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100vw - 24px);
+  }
+
+  #zenitSupportPanel {
+    left: auto;
+    right: 12px;
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+
+    width: calc(100vw - 24px);
+    max-width: 350px;
+
+    height: 450px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  #zenitSupportMessages {
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #zenitSupportForm {
+    flex-shrink: 0;
+  }
+}
+
   `;
 
   document.head.appendChild(zenitChatStyles);
@@ -2970,11 +3004,17 @@ loadAccount();
       zenitChatSetStatus("Message sent.");
     } catch (error) {
       zenitChatSetStatus(error.message || "Unable to send your message.");
+   
     } finally {
       zenitChatBusy = false;
       zenitChatSend.disabled = false;
-      zenitChatInput.focus();
+
+      // Restore focus automatically on desktop only.
+      if (window.matchMedia("(min-width: 481px)").matches) {
+        zenitChatInput.focus();
+      }
     }
+
   }
 
   function zenitChatStartPolling() {
@@ -3006,10 +3046,16 @@ loadAccount();
 
     if (!getAccountNumber()) {
       zenitChatSetStatus("Loading your account...");
+    
     } else {
       zenitChatStartPolling();
-      zenitChatInput.focus();
+
+      // Automatically focus only on larger screens.
+      if (window.matchMedia("(min-width: 481px)").matches) {
+        zenitChatInput.focus();
+      }
     }
+
   });
 
   zenitChatClose.addEventListener("click", function () {
