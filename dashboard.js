@@ -94,6 +94,27 @@ const profileName =
 const profileEmail =
   document.getElementById("profileEmail");
 
+const profilePhone =
+  document.getElementById("profilePhone");
+
+const profileDateOfBirth =
+  document.getElementById("profileDateOfBirth");
+
+const profileGender =
+  document.getElementById("profileGender");
+
+const profileOccupation =
+  document.getElementById("profileOccupation");
+
+const profileAddress =
+  document.getElementById("profileAddress");
+
+const profileStateCity =
+  document.getElementById("profileStateCity");
+
+const profileCountry =
+  document.getElementById("profileCountry");
+
 const accountMessageCard =
   document.getElementById("accountMessageCard");
 
@@ -496,6 +517,47 @@ function displayAccount(account) {
       account.email ||
       "----------";
   }
+
+  
+  // ====================================================
+  // PROFILE PERSONAL INFORMATION
+  // ====================================================
+
+  if (profilePhone) {
+    profilePhone.textContent =
+      account.phoneNumber || "----------";
+  }
+
+  if (profileDateOfBirth) {
+    profileDateOfBirth.textContent =
+      account.dateOfBirth || "----------";
+  }
+
+  if (profileGender) {
+    profileGender.textContent =
+      account.gender || "----------";
+  }
+
+  if (profileOccupation) {
+    profileOccupation.textContent =
+      account.occupation || "----------";
+  }
+
+  if (profileAddress) {
+    profileAddress.textContent =
+      account.address || "----------";
+  }
+
+  if (profileStateCity) {
+    profileStateCity.textContent =
+      account.stateCity || "----------";
+  }
+
+  if (profileCountry) {
+    profileCountry.textContent =
+      account.country || "----------";
+  }
+
 
 
   // ====================================================
